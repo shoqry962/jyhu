@@ -298,10 +298,6 @@ function startall() {
 				}
 				data["newmsg"] = badwordreplace(data.newmsg);
 				db.updmsg(data, function(err, docs){
-					if (docs) {
-						docs["msg"] = xss(data["newmsg"]);
-						docs["edtusr"] = data["tk_eduser"];
-					}
 					nspm.emit('updmsg', docs);
 				});
 			}
